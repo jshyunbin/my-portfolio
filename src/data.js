@@ -98,6 +98,7 @@ export const PORTFOLIO_DATA = {
     { title: "Café Hunting", note: "Specialty roasters in Seoul.", detail: "Taking walks with a cup of coffee from your favorite cafe solves everything.", icon: "coffee" },
     { title: "My Cats", note: "Two of them. Loud, fluffy.", detail: "Ari (Siberian/Norweigian Forest Cat) and Zorro (Ragdoll).", icon: "cat" },
     { title: "Games", note: "Indies, AAAs, Competitive.", detail: "From Hollow Knight, The Last of Us, Nier: Automata to Tekken.", icon: "controller" },
+    { title: "Architecture", note: "Connecting People, Time and Place", detail: "Love exploring buildings and following the architect's mind.", icon: "landmark" },
   ],
   projects: [
     // {
@@ -110,8 +111,8 @@ export const PORTFOLIO_DATA = {
     // },
     {
       title: "Portfolio · Blog Page",
-      sub: "A public self-portfolio and blog page",
-      desc: "Demonstrated that binding shape and text with rich semantic information creates a high-quality embedding space — enabling shape editing through latent-space interpolation guided by multi-modal prompts.",
+      sub: "A Public Self-Portfolio and Blog Page",
+      desc: "A React based web page showcasing my personal profiles and projects with a dedicated blog page for posting articles with ease.",
       stack: ["React", "Vite", "Software Engineering", "HTML · CSS"],
       url: "https://jshyunbin.github.io/my-portfolio/",
       year: "2026",

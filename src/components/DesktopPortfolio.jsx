@@ -57,7 +57,7 @@ export default function DesktopPortfolio({ photoSrc }) {
             onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--ink)'; e.currentTarget.style.borderColor = 'var(--ink)'; e.currentTarget.style.transform = 'translateY(0)' }}
           >
             <span>Visit Writing</span>
-            <span style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', textTransform: 'none', letterSpacing: 0, fontSize: 14, opacity: 0.85 }}>— field notes &amp; essays</span>
+            <span style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', textTransform: 'none', letterSpacing: 0, fontSize: 14, opacity: 0.85 }}>— a glimpse of my life</span>
             <span aria-hidden style={{ marginLeft: 4 }}>→</span>
           </button>
         </div>
@@ -104,7 +104,7 @@ export default function DesktopPortfolio({ photoSrc }) {
       {/* Footer */}
       <footer style={{ marginTop: 80, paddingTop: 24, borderTop: '1px solid var(--rule)', display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-4)', letterSpacing: 1 }}>
         <span>© 2026 JOSHUA HYUNBIN LEE</span>
-        <span>SET IN EB GARAMOND, INTER & JETBRAINS MONO</span>
+        {/* <span>SET IN EB GARAMOND, INTER & JETBRAINS MONO</span> */}
         <span>LAST UPDATED · APR 2026</span>
       </footer>
     </div>

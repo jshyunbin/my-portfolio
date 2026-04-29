@@ -96,7 +96,7 @@ export default function ArticlePage({ mobile }) {
           <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-3)', letterSpacing: 1.5, marginBottom: 4 }}>WRITTEN BY</div>
           <div style={{ fontFamily: 'var(--serif)', fontSize: mobile ? 22 : 26, fontWeight: 500, color: 'var(--ink)', letterSpacing: -0.3 }}>Joshua Hyunbin Lee</div>
           <div style={{ fontSize: mobile ? 12.5 : 13.5, color: 'var(--ink-2)', marginTop: 6, lineHeight: 1.55 }}>
-            {PORTFOLIO_DATA.tagline}. Writes about robotics, RL, and the texture of doing research as an undergrad.
+            {PORTFOLIO_DATA.tagline}. 
           </div>
         </div>
       </div>

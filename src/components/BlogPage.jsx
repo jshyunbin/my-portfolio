@@ -23,7 +23,7 @@ export default function BlogPage({ mobile }) {
         >
           ← BACK TO PORTFOLIO
         </button>
-        <span>JHL · WRITING</span>
+        <span>WRITING</span>
         {!mobile && <span>{all.length} ENTRIES · APR 2026</span>}
       </div>
 
@@ -39,7 +39,7 @@ export default function BlogPage({ mobile }) {
           </h1>
         </div>
         <div style={{ fontFamily: 'var(--serif)', fontSize: mobile ? 17 : 20, fontStyle: 'italic', color: 'var(--ink-2)', lineHeight: 1.45, letterSpacing: -0.2, paddingBottom: mobile ? 0 : 8 }}>
-          Field notes from the lab, half-finished essays on RL and robotics, and the occasional reflection on service, language, and trying to do good work as an undergrad.
+          A record of ordinary days — the small moments, passing thoughts, and routines that make up a life.
         </div>
       </header>
 
@@ -148,7 +148,7 @@ export default function BlogPage({ mobile }) {
       </section>
 
       {/* Newsletter */}
-      <section style={{ marginTop: mobile ? 56 : 88, padding: mobile ? '28px 22px' : '44px 56px', background: 'var(--paper-2)', border: '1px solid var(--rule)', display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1.2fr 1fr', gap: mobile ? 18 : 44, alignItems: 'center' }}>
+      {/* <section style={{ marginTop: mobile ? 56 : 88, padding: mobile ? '28px 22px' : '44px 56px', background: 'var(--paper-2)', border: '1px solid var(--rule)', display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1.2fr 1fr', gap: mobile ? 18 : 44, alignItems: 'center' }}>
         <div>
           <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, color: 'var(--accent)', letterSpacing: 2, fontWeight: 600, marginBottom: 8 }}>
             ✶ NEW POSTS, SOMETIMES
@@ -167,12 +167,12 @@ export default function BlogPage({ mobile }) {
             Subscribe
           </button>
         </form>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <footer style={{ marginTop: mobile ? 40 : 56, paddingTop: 20, borderTop: '1px solid var(--rule)', display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-4)', letterSpacing: 1, flexWrap: 'wrap', gap: 10 }}>
         <span>© 2026 JOSHUA HYUNBIN LEE · WRITING</span>
-        <span>RSS · ATOM · MAIL</span>
+        <span>PERSONAL BLOG</span>
       </footer>
     </div>
   )
