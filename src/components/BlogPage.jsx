@@ -76,17 +76,22 @@ export default function BlogPage({ mobile }) {
       {/* Featured */}
       {featured && (
         <article style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1.05fr 1fr', gap: mobile ? 18 : 56, paddingBottom: mobile ? 36 : 56, marginBottom: mobile ? 36 : 56, borderBottom: '1px solid var(--rule)', alignItems: 'stretch' }}>
-          {/* Visual placeholder */}
+          {/* Hero image or placeholder */}
           <div style={{ position: 'relative', minHeight: mobile ? 200 : 360, maxHeight: mobile ? 300 : 480, overflow: 'hidden', background: 'var(--paper-2)', border: '1px solid var(--rule)' }}>
-            <svg width="100%" height="100%" viewBox="0 0 800 560" preserveAspectRatio="xMidYMid slice" style={{ display: 'block' }}>
-              <defs>
-                <pattern id={`bp-feat-${mobile ? 'm' : 'd'}`} patternUnits="userSpaceOnUse" width="14" height="14" patternTransform="rotate(45)">
-                  <rect width="14" height="14" fill="var(--paper-2)" />
-                  <line x1="0" y1="0" x2="0" y2="14" stroke="var(--rule)" strokeWidth="1.4" />
-                </pattern>
-              </defs>
-              <rect width="800" height="560" fill={`url(#bp-feat-${mobile ? 'm' : 'd'})`} />
-            </svg>
+            {featured.heroImage
+              ? <img src={featured.heroImage} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              : (
+                <svg width="100%" height="100%" viewBox="0 0 800 560" preserveAspectRatio="xMidYMid slice" style={{ display: 'block' }}>
+                  <defs>
+                    <pattern id={`bp-feat-${mobile ? 'm' : 'd'}`} patternUnits="userSpaceOnUse" width="14" height="14" patternTransform="rotate(45)">
+                      <rect width="14" height="14" fill="var(--paper-2)" />
+                      <line x1="0" y1="0" x2="0" y2="14" stroke="var(--rule)" strokeWidth="1.4" />
+                    </pattern>
+                  </defs>
+                  <rect width="800" height="560" fill={`url(#bp-feat-${mobile ? 'm' : 'd'})`} />
+                </svg>
+              )
+            }
             <div style={{ position: 'absolute', top: 14, left: 14, fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--accent)', letterSpacing: 2, padding: '5px 10px', background: 'var(--paper)', border: '1px solid var(--accent)', fontWeight: 600 }}>
               ★ FEATURED
             </div>
@@ -119,7 +124,7 @@ export default function BlogPage({ mobile }) {
                 ))}
               </div>
               <button
-                onClick={() => navigate(`/article/${featured.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`)}
+                onClick={() => navigate(`/article/${featured.slug}`)}
                 style={{ fontFamily: 'var(--mono)', fontSize: 10.5, letterSpacing: 1.4, color: 'var(--paper)', background: 'var(--ink)', padding: '9px 14px', border: 'none', cursor: 'pointer', textTransform: 'uppercase' }}
               >
                 Read essay →
