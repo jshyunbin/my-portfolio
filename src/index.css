@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chiron+Sung+HK&family=Chiron+Hei+HK&family=Nanum+Gothic+Coding&display=swap');
 
 :root {
   --paper: #faf9f6;
@@ -9,9 +10,9 @@
   --ink-4: #b3aea2;
   --rule: #e3dfd6;
   --accent: #2f4858;
-  --serif: "EB Garamond", "Times New Roman", serif;
-  --sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --serif: "EB Garamond", "Chiron Sung HK", "Times New Roman", serif;
+  --sans: "Inter", "Chiron Hei HK", -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: "JetBrains Mono", "Nanum Gothic Coding", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
 html, body {
