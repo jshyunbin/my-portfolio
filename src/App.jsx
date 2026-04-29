@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
-import { DesktopPortfolio, MobilePortfolio, ArticlePage } from './components/Portfolio'
+import DesktopPortfolio from './components/DesktopPortfolio'
+import MobilePortfolio from './components/MobilePortfolio'
+import ArticlePage from './components/ArticlePage'
 
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < breakpoint)
@@ -16,14 +18,8 @@ export default function App() {
   const isMobile = useIsMobile()
   const [page, setPage] = useState('portfolio')
 
-  const goToArticle = () => {
-    setPage('article')
-    window.scrollTo(0, 0)
-  }
-  const goBack = () => {
-    setPage('portfolio')
-    window.scrollTo(0, 0)
-  }
+  const goToArticle = () => { setPage('article'); window.scrollTo(0, 0) }
+  const goBack = () => { setPage('portfolio'); window.scrollTo(0, 0) }
 
   if (page === 'article') {
     return <ArticlePage mobile={isMobile} onBack={goBack} />
