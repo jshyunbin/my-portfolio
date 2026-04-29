@@ -93,6 +93,12 @@ export const PORTFOLIO_DATA = {
     { lang: "English", note: "TOEFL 104", level: 0.86 },
     { lang: "Japanese", note: "JLPT N2", level: 0.62 },
   ],
+  hobbies: [
+    { title: "Films & Anime", note: "Late-night rewatches.", detail: "Akira, Fight Club, Satoshi Kon. Keeping a running list of opening shots that ruined me.", icon: "film" },
+    { title: "Café Hunting", note: "Specialty roasters in Seoul · Daejeon.", detail: "Maps pinned with espresso temps and notes on the wifi situation. Currently chasing the perfect cortado.", icon: "coffee" },
+    { title: "My Cats", note: "Two of them. Loud, fluffy.", detail: "Bori (long-haired tabby, full-time biscuit-maker) and Jjoongie (snowshoe, drool specialist).", icon: "cat" },
+    { title: "Games", note: "Indies, roguelikes, anything Kirby.", detail: "Hades, Hollow Knight, Outer Wilds. I will absolutely lose an evening to a well-tuned dash.", icon: "controller" },
+  ],
   projects: [
     {
       title: "ShapeBind",
@@ -108,5 +114,61 @@ export const PORTFOLIO_DATA = {
       stack: ["PyTorch", "Python", "RL · PPO"],
       year: "2023",
     },
+  ],
+  blog: [
+    {
+      title: "Teaching a Robot to Pour Coffee",
+      sub: "Notes from building a UMI rig",
+      kicker: "Field Notes",
+      date: "Apr 12, 2026",
+      readTime: "8 min",
+      tags: ["Robotics", "UMI"],
+      excerpt: "What I learned wrangling teleoperation hardware, latency budgets, and the unreasonable patience required to debug a gripper at 3am in the lab.",
+    },
+    {
+      title: "PPO, in Plain Korean",
+      sub: "Why proximal policy optimization clicks once you stop reading the paper",
+      kicker: "Essay",
+      date: "Feb 28, 2026",
+      readTime: "12 min",
+      tags: ["RL", "ML"],
+      excerpt: "An attempt to write the explanation I wish someone had handed me at the start of my RL coursework — half intuition, half code, mostly diagrams.",
+    },
+    {
+      title: "Eighteen Months as KATUSA",
+      sub: "On translating, leading, and learning to listen in two languages",
+      kicker: "Reflection",
+      date: "Aug 04, 2025",
+      readTime: "6 min",
+      tags: ["Service", "Bilingual"],
+      excerpt: "Mandatory military service ended the same week I returned to lab. Here is what stayed with me, and what I'm still trying to put down.",
+    },
+  ],
+};
+
+export const SAMPLE_ARTICLE = {
+  kicker: "Field Notes",
+  date: "April 12, 2026",
+  readTime: "8 min read",
+  title: "Teaching a Robot to Pour Coffee",
+  sub: "Notes from building a UMI rig",
+  tags: ["Robotics", "UMI", "Lab"],
+  body: [
+    { kind: "lede", text: "The first time the gripper closed on the kettle handle without me touching the joystick, I clapped out loud, alone, at 2:47 in the morning. That moment is the entire reason I came to this lab — and also, in retrospect, the cheapest part of the project." },
+    { kind: "h2", text: "What a UMI actually is" },
+    { kind: "p", text: "A Universal Manipulation Interface is, in its skeletal form, a hand-held gripper rigged with a stereo camera, an IMU, and a piece of fishing line connecting your fingers to a state. You wear it. You do the task. It records. The recordings, after a deal of preprocessing and a generous amount of luck, become demonstrations a policy network can learn from." },
+    { kind: "p", text: "The point is not to teleoperate. The point is to gather thousands of demonstrations without strapping the robot itself into a teleop rig — because the robot has a workspace, a power budget, a tendency to draw a small audience of curious grad students. The UMI doesn't. The UMI is a tool you put in a backpack." },
+    { kind: "pull", text: "“If teleoperation is a phone call, UMI is a voice note. Slower to debug, much easier to send.”" },
+    { kind: "h2", text: "Three weeks of fishing line" },
+    { kind: "p", text: "I had thought, naively, that the rig would arrive, that I would calibrate it for an afternoon, and that we would move on to learning. Instead I spent three weeks debugging fishing line tension, IMU drift, and a particularly stubborn USB cable that needed to sit at exactly the right angle to deliver bandwidth." },
+    { kind: "p", text: "I am not yet convinced that any of this is generalizable. What I am convinced of is that nothing in the literature prepares you for the shape of a real laboratory: the way a lighting change at 4pm shifts your stereo calibration; the way a Saturday morning power blip costs you Monday's training run." },
+    { kind: "code", text: "# clamp grip width to the calibrated home pose\nimport numpy as np\nGRIP_HOME = np.array([0.041, 0.041])  # meters, per finger\n\ndef clamp(width):\n    return np.clip(width, 0.0, GRIP_HOME.sum())" },
+    { kind: "h2", text: "What I'd tell a past me" },
+    { kind: "p", text: "Buy two of every cable. Photograph the workbench at the end of every session. Treat the IMU like a small, honest animal: feed it slow rotations and it will tell you the truth." },
+    { kind: "p", text: "The kettle still wobbles, sometimes. The policy still confuses the rim of a mug for the lip of a saucer about one time in twelve. But it pours, mostly. And I've learned to take that as a kind of progress that doesn't always show up in a loss curve." },
+  ],
+  related: [
+    { title: "PPO, in Plain Korean", date: "Feb 28, 2026", kicker: "Essay" },
+    { title: "Eighteen Months as KATUSA", date: "Aug 04, 2025", kicker: "Reflection" },
   ],
 };
