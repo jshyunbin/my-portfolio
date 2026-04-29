@@ -2,22 +2,25 @@ import { useState } from 'react'
 
 export default function ProjectCard({ project, mobile }) {
   const [hovered, setHovered] = useState(false)
-  return (
+  const hasUrl = Boolean(project.url)
+
+  const card = (
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
         border: '1px solid var(--rule)',
-        background: hovered ? 'var(--paper-2)' : 'var(--paper)',
+        background: hovered && hasUrl ? 'var(--paper-2)' : 'var(--paper)',
         padding: mobile ? '18px 16px' : '24px 22px',
         transition: 'all .3s cubic-bezier(.2,.7,.3,1)',
-        transform: hovered ? 'translateY(-3px)' : 'translateY(0)',
-        cursor: 'default', position: 'relative',
+        transform: hovered && hasUrl ? 'translateY(-3px)' : 'translateY(0)',
+        cursor: hasUrl ? 'pointer' : 'default', position: 'relative',
+        textDecoration: 'none', color: 'inherit', display: 'block',
       }}
     >
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10, marginBottom: 4 }}>
         <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-4)', letterSpacing: 1 }}>{project.year}</span>
-        <span aria-hidden style={{ fontFamily: 'var(--mono)', fontSize: 14, color: hovered ? 'var(--accent)' : 'var(--ink-4)', transform: hovered ? 'translateX(3px) translateY(-3px)' : 'translateX(0)', transition: 'all .3s cubic-bezier(.2,.7,.3,1)' }}>↗</span>
+        {hasUrl && <span aria-hidden style={{ fontFamily: 'var(--mono)', fontSize: 14, color: hovered ? 'var(--accent)' : 'var(--ink-4)', transform: hovered ? 'translateX(3px) translateY(-3px)' : 'translateX(0)', transition: 'all .3s cubic-bezier(.2,.7,.3,1)' }}>↗</span>}
       </div>
       <div style={{ fontFamily: 'var(--serif)', fontSize: mobile ? 24 : 28, color: 'var(--ink)', letterSpacing: -0.5, fontWeight: 500, lineHeight: 1.05 }}>
         {project.title}
@@ -38,4 +41,8 @@ export default function ProjectCard({ project, mobile }) {
       </div>
     </div>
   )
+
+  return hasUrl
+    ? <a href={project.url} target="_blank" rel="noreferrer" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>{card}</a>
+    : card
 }
