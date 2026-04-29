@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 export default function BlogCard({ post, mobile, featured }) {
   const [hovered, setHovered] = useState(false)
   const navigate = useNavigate()
-  const slug = post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+  const slug = post.slug ?? post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 
   return (
     <article

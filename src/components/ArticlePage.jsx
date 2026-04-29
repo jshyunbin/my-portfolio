@@ -1,46 +1,33 @@
-import { useNavigate } from 'react-router-dom'
-import { PORTFOLIO_DATA, SAMPLE_ARTICLE } from '../data'
-import PortraitPlaceholder from './PortraitPlaceholder'
-
-function ArticleBlock({ block }) {
-  if (block.kind === 'lede') return (
-    <p style={{ fontFamily: 'var(--serif)', fontSize: 26, lineHeight: 1.45, color: 'var(--ink)', fontWeight: 400, margin: '0 0 32px' }}>
-      {block.text}
-    </p>
-  )
-  if (block.kind === 'h2') return (
-    <h2 style={{ fontFamily: 'var(--serif)', fontSize: 32, fontWeight: 500, letterSpacing: -0.6, color: 'var(--ink)', margin: '44px 0 14px' }}>
-      {block.text}
-    </h2>
-  )
-  if (block.kind === 'pull') return (
-    <blockquote style={{ margin: '32px 0', padding: '12px 0 12px 28px', borderLeft: '3px solid var(--accent)', fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 22, lineHeight: 1.4, color: 'var(--ink-2)' }}>
-      {block.text}
-    </blockquote>
-  )
-  if (block.kind === 'code') return (
-    <pre style={{ background: 'var(--paper-2)', border: '1px solid var(--rule)', padding: '18px 20px', margin: '24px 0', overflowX: 'auto', fontFamily: 'var(--mono)', fontSize: 12.5, lineHeight: 1.6, color: 'var(--ink)', borderRadius: 2 }}>
-      <code>{block.text}</code>
-    </pre>
-  )
-  return (
-    <p style={{ fontFamily: 'var(--serif)', fontSize: 19, lineHeight: 1.65, color: 'var(--ink-2)', margin: '0 0 22px' }}>
-      {block.text}
-    </p>
-  )
-}
+import { useNavigate, useParams } from 'react-router-dom'
+import { getArticleBySlug, getAllArticles } from '../lib/articles'
+import profilePhoto from '../assets/profile.jpeg'
+import { PORTFOLIO_DATA } from '../data'
 
 export default function ArticlePage({ mobile }) {
   const navigate = useNavigate()
-  const a = SAMPLE_ARTICLE
+  const { slug } = useParams()
+  const a = getArticleBySlug(slug)
+
+  if (!a) {
+    return (
+      <div style={{ background: 'var(--paper)', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--mono)', color: 'var(--ink-3)', gap: 16 }}>
+        <div style={{ fontSize: 11, letterSpacing: 2 }}>404 · NOT FOUND</div>
+        <button onClick={() => navigate('/blog')} style={{ all: 'unset', cursor: 'pointer', color: 'var(--accent)', fontSize: 11, letterSpacing: 1.5 }}>← BACK TO WRITING</button>
+      </div>
+    )
+  }
+
+  const related = getAllArticles().filter((p) => p.slug !== slug).slice(0, 2)
+
   return (
     <div style={{ background: 'var(--paper)', color: 'var(--ink)', padding: mobile ? '28px 22px 40px' : '60px 80px 80px', fontFamily: 'var(--sans)', minHeight: '100vh' }}>
+
       {/* Top bar */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: mobile ? 28 : 48, fontFamily: 'var(--mono)', fontSize: mobile ? 9.5 : 10.5, color: 'var(--ink-3)', letterSpacing: 1.5 }}>
-        <button onClick={() => navigate(-1)} style={{ all: 'unset', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 8, color: 'var(--accent)' }}>
-          ← BACK
+        <button onClick={() => navigate('/blog')} style={{ all: 'unset', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 8, color: 'var(--accent)' }}>
+          ← WRITING
         </button>
-        <span>JHL · WRITING</span>
+        <span>WRITING</span>
         {!mobile && <span>{a.readTime.toUpperCase()}</span>}
       </div>
 
@@ -57,10 +44,16 @@ export default function ArticlePage({ mobile }) {
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: mobile ? 22 : 32, flexWrap: 'wrap', gap: 10 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <PortraitPlaceholder size={mobile ? 36 : 44} />
+            <img
+              src={profilePhoto}
+              alt="Joshua Hyunbin Lee"
+              style={{ width: mobile ? 36 : 44, height: mobile ? 36 : 44, borderRadius: '50%', objectFit: 'cover', border: '1px solid var(--rule)' }}
+            />
             <div>
               <div style={{ fontFamily: 'var(--sans)', fontSize: mobile ? 12 : 13, fontWeight: 500, color: 'var(--ink)' }}>Joshua Hyunbin Lee</div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: mobile ? 10 : 10.5, color: 'var(--ink-3)', letterSpacing: 0.4, marginTop: 2 }}>{a.date} · {a.readTime}</div>
+              <div style={{ fontFamily: 'var(--mono)', fontSize: mobile ? 10 : 10.5, color: 'var(--ink-3)', letterSpacing: 0.4, marginTop: 2 }}>
+                {new Date(a.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} · {a.readTime}
+              </div>
             </div>
           </div>
           <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
@@ -86,35 +79,49 @@ export default function ArticlePage({ mobile }) {
       </div>
 
       {/* Body */}
-      <div style={{ maxWidth: 720, margin: mobile ? '0' : '0 auto' }}>
-        {a.body.map((b, i) => <ArticleBlock key={i} block={b} />)}
+      <div
+        className="article-body"
+        style={{ maxWidth: 720, margin: mobile ? '0' : '0 auto' }}
+        dangerouslySetInnerHTML={{ __html: a.html }}
+      />
 
-        {/* Author footer */}
-        <div style={{ marginTop: 48, paddingTop: 28, borderTop: '1px solid var(--rule)', display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-          <PortraitPlaceholder size={mobile ? 48 : 64} />
-          <div style={{ flex: 1 }}>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-3)', letterSpacing: 1.5, marginBottom: 4 }}>WRITTEN BY</div>
-            <div style={{ fontFamily: 'var(--serif)', fontSize: mobile ? 22 : 26, fontWeight: 500, color: 'var(--ink)', letterSpacing: -0.3 }}>Joshua Hyunbin Lee</div>
-            <div style={{ fontSize: mobile ? 12.5 : 13.5, color: 'var(--ink-2)', marginTop: 6, lineHeight: 1.55 }}>
-              {PORTFOLIO_DATA.tagline}. Writes about robotics, RL, and the texture of doing research as an undergrad.
-            </div>
+      {/* Author footer */}
+      <div style={{ maxWidth: 720, margin: mobile ? '48px 0 0' : '48px auto 0', paddingTop: 28, borderTop: '1px solid var(--rule)', display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+        <img
+          src={profilePhoto}
+          alt="Joshua Hyunbin Lee"
+          style={{ width: mobile ? 48 : 64, height: mobile ? 48 : 64, borderRadius: '50%', objectFit: 'cover', border: '1px solid var(--rule)', flexShrink: 0 }}
+        />
+        <div style={{ flex: 1 }}>
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-3)', letterSpacing: 1.5, marginBottom: 4 }}>WRITTEN BY</div>
+          <div style={{ fontFamily: 'var(--serif)', fontSize: mobile ? 22 : 26, fontWeight: 500, color: 'var(--ink)', letterSpacing: -0.3 }}>Joshua Hyunbin Lee</div>
+          <div style={{ fontSize: mobile ? 12.5 : 13.5, color: 'var(--ink-2)', marginTop: 6, lineHeight: 1.55 }}>
+            {PORTFOLIO_DATA.tagline}. Writes about robotics, RL, and the texture of doing research as an undergrad.
           </div>
         </div>
       </div>
 
       {/* Related */}
-      <section style={{ maxWidth: 1080, margin: mobile ? '48px 0 0' : '80px auto 0', paddingTop: 24, borderTop: '1px solid var(--rule)' }}>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, color: 'var(--accent)', letterSpacing: 2.5, marginBottom: 18 }}>KEEP READING</div>
-        <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1fr', gap: mobile ? 0 : 32 }}>
-          {a.related.map((r, i) => (
-            <div key={i} style={{ padding: '18px 0', borderTop: '1px solid var(--rule)' }}>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--accent)', letterSpacing: 1.6, fontWeight: 600, marginBottom: 4 }}>{r.kicker.toUpperCase()}</div>
-              <div style={{ fontFamily: 'var(--serif)', fontSize: mobile ? 22 : 26, fontWeight: 500, letterSpacing: -0.4, color: 'var(--ink)', lineHeight: 1.1 }}>{r.title}</div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-3)', letterSpacing: 0.4, marginTop: 6 }}>{r.date}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {related.length > 0 && (
+        <section style={{ maxWidth: 1080, margin: mobile ? '48px 0 0' : '80px auto 0', paddingTop: 24, borderTop: '1px solid var(--rule)' }}>
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, color: 'var(--accent)', letterSpacing: 2.5, marginBottom: 18 }}>KEEP READING</div>
+          <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1fr', gap: mobile ? 0 : 32 }}>
+            {related.map((r) => (
+              <div
+                key={r.slug}
+                onClick={() => navigate(`/article/${r.slug}`)}
+                style={{ padding: '18px 0', borderTop: '1px solid var(--rule)', cursor: 'pointer' }}
+              >
+                <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--accent)', letterSpacing: 1.6, fontWeight: 600, marginBottom: 4 }}>{r.kicker.toUpperCase()}</div>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: mobile ? 22 : 26, fontWeight: 500, letterSpacing: -0.4, color: 'var(--ink)', lineHeight: 1.1 }}>{r.title}</div>
+                <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-3)', letterSpacing: 0.4, marginTop: 6 }}>
+                  {new Date(r.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   )
 }

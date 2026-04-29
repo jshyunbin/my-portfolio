@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { PORTFOLIO_DATA } from '../data'
+import { getAllArticles } from '../lib/articles'
 import BlogCard from './BlogCard'
 
 export default function BlogPage({ mobile }) {
   const navigate = useNavigate()
   const [filter, setFilter] = useState('All')
-  const all = PORTFOLIO_DATA.blog
+  const all = getAllArticles()
   const tags = ['All', ...Array.from(new Set(all.flatMap((p) => p.tags)))]
   const visible = filter === 'All' ? all : all.filter((p) => p.tags.includes(filter))
   const featured = visible[0]
@@ -24,7 +24,7 @@ export default function BlogPage({ mobile }) {
           ← BACK TO PORTFOLIO
         </button>
         <span>JHL · WRITING</span>
-        {!mobile && <span>{PORTFOLIO_DATA.blog.length} ENTRIES · APR 2026</span>}
+        {!mobile && <span>{all.length} ENTRIES · APR 2026</span>}
       </div>
 
       {/* Title block */}
