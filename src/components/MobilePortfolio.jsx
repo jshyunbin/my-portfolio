@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { PORTFOLIO_DATA } from '../data'
 import PortraitPlaceholder from './PortraitPlaceholder'
 import ContactIcon from './ContactIcon'
@@ -7,9 +8,9 @@ import SkillsBlock from './SkillsBlock'
 import LanguagesBlock from './LanguagesBlock'
 import ProjectCard from './ProjectCard'
 import HobbiesBlock from './HobbiesBlock'
-import BlogCard from './BlogCard'
 
 export default function MobilePortfolio({ photoSrc }) {
+  const navigate = useNavigate()
   return (
     <div style={{ background: 'var(--paper)', color: 'var(--ink)', padding: '32px 22px 40px', fontFamily: 'var(--sans)' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--mono)', fontSize: 9.5, color: 'var(--ink-4)', letterSpacing: 1.2, marginBottom: 28 }}>
@@ -38,6 +39,14 @@ export default function MobilePortfolio({ photoSrc }) {
             </a>
           ))}
         </div>
+        {/* Visit Writing CTA */}
+        <button
+          onClick={() => navigate('/blog')}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, marginTop: 22, padding: '12px 16px', border: '1px solid var(--ink)', background: 'var(--ink)', color: 'var(--paper)', fontFamily: 'var(--mono)', fontSize: 10.5, letterSpacing: 1.4, textTransform: 'uppercase', fontWeight: 500, cursor: 'pointer', width: '100%' }}
+        >
+          <span>Visit Writing</span>
+          <span aria-hidden>→</span>
+        </button>
       </header>
 
       <section style={{ marginBottom: 40 }}>
@@ -70,17 +79,6 @@ export default function MobilePortfolio({ photoSrc }) {
       <section style={{ marginBottom: 40 }}>
         <SectionLabel num={6}>Things I Like</SectionLabel>
         <HobbiesBlock mobile />
-      </section>
-
-      <section style={{ marginBottom: 24 }}>
-        <SectionLabel num={7}>Writing</SectionLabel>
-        <div>
-          {PORTFOLIO_DATA.blog.map((p, i) => <BlogCard key={i} post={p} mobile />)}
-          <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid var(--rule)', display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--mono)', fontSize: 9.5, color: 'var(--ink-3)', letterSpacing: 1 }}>
-            <span>{PORTFOLIO_DATA.blog.length} ENTRIES</span>
-            <span style={{ color: 'var(--accent)', cursor: 'pointer' }}>VIEW ALL →</span>
-          </div>
-        </div>
       </section>
 
       <footer style={{ marginTop: 32, paddingTop: 18, borderTop: '1px solid var(--rule)', fontFamily: 'var(--mono)', fontSize: 9, color: 'var(--ink-4)', letterSpacing: 1, textAlign: 'center' }}>

@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
 import DesktopPortfolio from './components/DesktopPortfolio'
 import MobilePortfolio from './components/MobilePortfolio'
 import ArticlePage from './components/ArticlePage'
+import BlogPage from './components/BlogPage'
 import profilePhoto from './assets/profile.jpeg'
 
 function ScrollToTop() {
@@ -34,6 +35,11 @@ function ArticleRoute() {
   return <ArticlePage mobile={isMobile} />
 }
 
+function BlogRoute() {
+  const isMobile = useIsMobile()
+  return <BlogPage mobile={isMobile} />
+}
+
 export default function App() {
   return (
     <HashRouter>
@@ -41,6 +47,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Portfolio />} />
         <Route path="/article/:slug" element={<ArticleRoute />} />
+        <Route path="/blog" element={<BlogRoute />} />
       </Routes>
     </HashRouter>
   )

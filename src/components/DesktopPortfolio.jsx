@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { PORTFOLIO_DATA } from '../data'
 import PortraitPlaceholder from './PortraitPlaceholder'
 import ContactIcon from './ContactIcon'
@@ -7,15 +8,14 @@ import SkillsBlock from './SkillsBlock'
 import LanguagesBlock from './LanguagesBlock'
 import ProjectCard from './ProjectCard'
 import HobbiesBlock from './HobbiesBlock'
-import BlogCard from './BlogCard'
 
 export default function DesktopPortfolio({ photoSrc }) {
+  const navigate = useNavigate()
   return (
     <div style={{ background: 'var(--paper)', color: 'var(--ink)', minHeight: '100vh', padding: '60px 80px 80px', fontFamily: 'var(--sans)' }}>
       {/* Top bar */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 56, fontFamily: 'var(--mono)', fontSize: 10.5, color: 'var(--ink-3)', letterSpacing: 1.5 }}>
         <span>JHL · PORTFOLIO · 2026</span>
-        <span>SEOUL ⇋ DAEJEON</span>
         <span>v1.0</span>
       </div>
 
@@ -49,6 +49,17 @@ export default function DesktopPortfolio({ photoSrc }) {
               </a>
             ))}
           </div>
+          {/* Visit Writing CTA */}
+          <button
+            onClick={() => navigate('/blog')}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginTop: 28, padding: '12px 18px', border: '1px solid var(--ink)', background: 'var(--ink)', color: 'var(--paper)', fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: 1.6, textTransform: 'uppercase', fontWeight: 500, cursor: 'pointer', transition: 'all .25s cubic-bezier(.2,.7,.3,1)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--ink)'; e.currentTarget.style.borderColor = 'var(--ink)'; e.currentTarget.style.transform = 'translateY(0)' }}
+          >
+            <span>Visit Writing</span>
+            <span style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', textTransform: 'none', letterSpacing: 0, fontSize: 14, opacity: 0.85 }}>— field notes &amp; essays</span>
+            <span aria-hidden style={{ marginLeft: 4 }}>→</span>
+          </button>
         </div>
       </header>
 
@@ -88,23 +99,6 @@ export default function DesktopPortfolio({ photoSrc }) {
       <section style={{ marginBottom: 88 }}>
         <SectionLabel num={6}>Things I Like</SectionLabel>
         <HobbiesBlock />
-      </section>
-
-      {/* 07 Writing */}
-      <section style={{ marginBottom: 40 }}>
-        <SectionLabel num={7}>Writing</SectionLabel>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 56, alignItems: 'start' }}>
-          <BlogCard post={PORTFOLIO_DATA.blog[0]} featured />
-          <div>
-            {PORTFOLIO_DATA.blog.slice(1).map((p, i) => (
-              <BlogCard key={i} post={p} />
-            ))}
-            <div style={{ marginTop: 18, paddingTop: 14, borderTop: '1px solid var(--rule)', display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--mono)', fontSize: 10.5, color: 'var(--ink-3)', letterSpacing: 1.2 }}>
-              <span>{PORTFOLIO_DATA.blog.length} ENTRIES</span>
-              <span style={{ color: 'var(--accent)', cursor: 'pointer' }}>VIEW ALL →</span>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Footer */}
