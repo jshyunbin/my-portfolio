@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react'
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  return null
+}
 import DesktopPortfolio from './components/DesktopPortfolio'
 import MobilePortfolio from './components/MobilePortfolio'
 import ArticlePage from './components/ArticlePage'
@@ -23,6 +29,7 @@ function Portfolio() {
 export default function App() {
   return (
     <HashRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Portfolio />} />
         <Route path="/article/:slug" element={<ArticleRoute />} />
