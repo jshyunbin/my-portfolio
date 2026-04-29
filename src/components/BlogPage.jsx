@@ -77,7 +77,7 @@ export default function BlogPage({ mobile }) {
       {featured && (
         <article style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1.05fr 1fr', gap: mobile ? 18 : 56, paddingBottom: mobile ? 36 : 56, marginBottom: mobile ? 36 : 56, borderBottom: '1px solid var(--rule)', alignItems: 'stretch' }}>
           {/* Visual placeholder */}
-          <div style={{ position: 'relative', minHeight: mobile ? 200 : 360, overflow: 'hidden', background: 'var(--paper-2)', border: '1px solid var(--rule)' }}>
+          <div style={{ position: 'relative', minHeight: mobile ? 200 : 360, maxHeight: mobile ? 300 : 480, overflow: 'hidden', background: 'var(--paper-2)', border: '1px solid var(--rule)' }}>
             <svg width="100%" height="100%" viewBox="0 0 800 560" preserveAspectRatio="xMidYMid slice" style={{ display: 'block' }}>
               <defs>
                 <pattern id={`bp-feat-${mobile ? 'm' : 'd'}`} patternUnits="userSpaceOnUse" width="14" height="14" patternTransform="rotate(45)">
