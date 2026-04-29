@@ -64,19 +64,16 @@ export default function ArticlePage({ mobile }) {
         </div>
       </header>
 
-      {/* Hero image placeholder */}
-      <div style={{ maxWidth: 1080, margin: mobile ? '0 -22px 40px' : '0 auto 56px', aspectRatio: '16 / 9', overflow: 'hidden' }}>
-        <svg width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" style={{ display: 'block' }}>
-          <defs>
-            <pattern id="art-stripes" patternUnits="userSpaceOnUse" width="14" height="14" patternTransform="rotate(45)">
-              <rect width="14" height="14" fill="var(--paper-2)" />
-              <line x1="0" y1="0" x2="0" y2="14" stroke="var(--rule)" strokeWidth="1.5" />
-            </pattern>
-          </defs>
-          <rect width="1600" height="900" fill="url(#art-stripes)" />
-          <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" fontFamily="var(--mono)" fontSize="14" fill="var(--ink-3)" letterSpacing="2">[ HERO IMAGE · 16:9 ]</text>
-        </svg>
-      </div>
+      {/* Hero image */}
+      {a.heroImage && (
+        <div style={{ maxWidth: 1080, margin: mobile ? '0 -22px 40px' : '0 auto 56px', overflow: 'hidden' }}>
+          <img
+            src={a.heroImage}
+            alt=""
+            style={{ display: 'block', width: '100%', maxHeight: 560, objectFit: 'cover' }}
+          />
+        </div>
+      )}
 
       {/* Body */}
       <div

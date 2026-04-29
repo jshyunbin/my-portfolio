@@ -1,10 +1,17 @@
 import { marked } from 'marked'
 
 // Import all markdown files as raw strings at build time.
-// The directory name becomes the slug.
 const rawFiles = import.meta.glob('../content/blog/*/index.md', {
   eager: true,
   query: '?raw',
+  import: 'default',
+})
+
+// Import all blog images through Vite's asset pipeline so they get
+// fingerprinted and correctly pathed in production.
+const imageAssets = import.meta.glob('../content/blog/*/images/*', {
+  eager: true,
+  query: '?url',
   import: 'default',
 })
 
@@ -34,13 +41,32 @@ function parseFrontmatter(raw) {
   return { data, content: match[2] }
 }
 
+// Rewrite ./images/X src attributes to the Vite-processed asset URL.
+function resolveImageSrcs(html, slug) {
+  return html.replace(/src="(\.\/images\/[^"]+)"/g, (_, relativeSrc) => {
+    const filename = relativeSrc.slice('./images/'.length)
+    const key = `../content/blog/${slug}/images/${filename}`
+    const url = imageAssets[key] ?? relativeSrc
+    return `src="${url}"`
+  })
+}
+
 function parseFile(path, raw) {
   const slug = path.match(/\/content\/blog\/([^/]+)\/index\.md$/)?.[1] ?? ''
   const { data, content } = parseFrontmatter(raw)
+
+  let html = marked(content)
+  html = resolveImageSrcs(html, slug)
+
+  // Extract the first image in the article to use as the hero.
+  const heroMatch = html.match(/<img[^>]+src="([^"]+)"/)
+  const heroImage = heroMatch ? heroMatch[1] : null
+
   return {
     slug,
     ...data,
-    html: marked(content),
+    html,
+    heroImage,
   }
 }
 
