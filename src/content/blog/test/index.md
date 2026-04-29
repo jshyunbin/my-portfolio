@@ -4,7 +4,7 @@ sub: "블로그 첫글"
 kicker: "Technical Report"
 date: "0000-00-00"
 readTime: "3 min"
-tags: ["Random", "Blog"]
+tags: ["Report", "Blog"]
 excerpt: "블로그 제작 일화"
 ---
 
