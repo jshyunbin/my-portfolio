@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import DesktopPortfolio from './components/DesktopPortfolio'
 import MobilePortfolio from './components/MobilePortfolio'
 import ArticlePage from './components/ArticlePage'
@@ -14,18 +15,23 @@ function useIsMobile(breakpoint = 768) {
   return isMobile
 }
 
-export default function App() {
+function Portfolio() {
   const isMobile = useIsMobile()
-  const [page, setPage] = useState('portfolio')
+  return isMobile ? <MobilePortfolio /> : <DesktopPortfolio />
+}
 
-  const goToArticle = () => { setPage('article'); window.scrollTo(0, 0) }
-  const goBack = () => { setPage('portfolio'); window.scrollTo(0, 0) }
+export default function App() {
+  return (
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Portfolio />} />
+        <Route path="/article/:slug" element={<ArticleRoute />} />
+      </Routes>
+    </HashRouter>
+  )
+}
 
-  if (page === 'article') {
-    return <ArticlePage mobile={isMobile} onBack={goBack} />
-  }
-
-  return isMobile
-    ? <MobilePortfolio onReadArticle={goToArticle} />
-    : <DesktopPortfolio onReadArticle={goToArticle} />
+function ArticleRoute() {
+  const isMobile = useIsMobile()
+  return <ArticlePage mobile={isMobile} />
 }

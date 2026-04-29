@@ -1,12 +1,16 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-export default function BlogCard({ post, mobile, featured, onRead }) {
+export default function BlogCard({ post, mobile, featured }) {
   const [hovered, setHovered] = useState(false)
+  const navigate = useNavigate()
+  const slug = post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+
   return (
     <article
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={onRead}
+      onClick={() => navigate(`/article/${slug}`)}
       style={{
         position: 'relative',
         padding: mobile ? '18px 0' : featured ? '0' : '22px 0',

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { PORTFOLIO_DATA, SAMPLE_ARTICLE } from '../data'
 import PortraitPlaceholder from './PortraitPlaceholder'
 
@@ -29,13 +30,14 @@ function ArticleBlock({ block }) {
   )
 }
 
-export default function ArticlePage({ mobile, onBack }) {
+export default function ArticlePage({ mobile }) {
+  const navigate = useNavigate()
   const a = SAMPLE_ARTICLE
   return (
     <div style={{ background: 'var(--paper)', color: 'var(--ink)', padding: mobile ? '28px 22px 40px' : '60px 80px 80px', fontFamily: 'var(--sans)', minHeight: '100vh' }}>
       {/* Top bar */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: mobile ? 28 : 48, fontFamily: 'var(--mono)', fontSize: mobile ? 9.5 : 10.5, color: 'var(--ink-3)', letterSpacing: 1.5 }}>
-        <button onClick={onBack} style={{ all: 'unset', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 8, color: 'var(--accent)' }}>
+        <button onClick={() => navigate(-1)} style={{ all: 'unset', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 8, color: 'var(--accent)' }}>
           ← BACK
         </button>
         <span>JHL · WRITING</span>

@@ -9,7 +9,7 @@ import ProjectCard from './ProjectCard'
 import HobbiesBlock from './HobbiesBlock'
 import BlogCard from './BlogCard'
 
-export default function DesktopPortfolio({ photoSrc, onReadArticle }) {
+export default function DesktopPortfolio({ photoSrc }) {
   return (
     <div style={{ background: 'var(--paper)', color: 'var(--ink)', minHeight: '100vh', padding: '60px 80px 80px', fontFamily: 'var(--sans)' }}>
       {/* Top bar */}
@@ -94,10 +94,10 @@ export default function DesktopPortfolio({ photoSrc, onReadArticle }) {
       <section style={{ marginBottom: 40 }}>
         <SectionLabel num={7}>Writing</SectionLabel>
         <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 56, alignItems: 'start' }}>
-          <BlogCard post={PORTFOLIO_DATA.blog[0]} featured onRead={onReadArticle} />
+          <BlogCard post={PORTFOLIO_DATA.blog[0]} featured />
           <div>
             {PORTFOLIO_DATA.blog.slice(1).map((p, i) => (
-              <BlogCard key={i} post={p} onRead={onReadArticle} />
+              <BlogCard key={i} post={p} />
             ))}
             <div style={{ marginTop: 18, paddingTop: 14, borderTop: '1px solid var(--rule)', display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--mono)', fontSize: 10.5, color: 'var(--ink-3)', letterSpacing: 1.2 }}>
               <span>{PORTFOLIO_DATA.blog.length} ENTRIES</span>

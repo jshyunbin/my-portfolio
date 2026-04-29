@@ -9,7 +9,7 @@ import ProjectCard from './ProjectCard'
 import HobbiesBlock from './HobbiesBlock'
 import BlogCard from './BlogCard'
 
-export default function MobilePortfolio({ photoSrc, onReadArticle }) {
+export default function MobilePortfolio({ photoSrc }) {
   return (
     <div style={{ background: 'var(--paper)', color: 'var(--ink)', padding: '32px 22px 40px', fontFamily: 'var(--sans)' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--mono)', fontSize: 9.5, color: 'var(--ink-4)', letterSpacing: 1.2, marginBottom: 28 }}>
@@ -75,7 +75,7 @@ export default function MobilePortfolio({ photoSrc, onReadArticle }) {
       <section style={{ marginBottom: 24 }}>
         <SectionLabel num={7}>Writing</SectionLabel>
         <div>
-          {PORTFOLIO_DATA.blog.map((p, i) => <BlogCard key={i} post={p} mobile onRead={onReadArticle} />)}
+          {PORTFOLIO_DATA.blog.map((p, i) => <BlogCard key={i} post={p} mobile />)}
           <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid var(--rule)', display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--mono)', fontSize: 9.5, color: 'var(--ink-3)', letterSpacing: 1 }}>
             <span>{PORTFOLIO_DATA.blog.length} ENTRIES</span>
             <span style={{ color: 'var(--accent)', cursor: 'pointer' }}>VIEW ALL →</span>
