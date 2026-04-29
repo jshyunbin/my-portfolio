@@ -99,14 +99,14 @@ export const PORTFOLIO_DATA = {
       sub: "Introducing Shape into Unified Embedding Space",
       desc: "Demonstrated that binding shape and text with rich semantic information creates a high-quality embedding space — enabling shape editing through latent-space interpolation guided by multi-modal prompts.",
       stack: ["PyTorch", "Python", "Multi-modal"],
-      year: "2024",
+      year: "2023",
     },
     {
       title: "Protein Sequence Design",
       sub: "via Reinforcement Learning",
       desc: "Built a framework that generates protein sequences which are both stable and functional by modeling sequence design as a Markov Decision Process. Achieved ~8% improvement over baseline fitness scores using PPO.",
       stack: ["PyTorch", "Python", "RL · PPO"],
-      year: "2024",
+      year: "2023",
     },
   ],
 };

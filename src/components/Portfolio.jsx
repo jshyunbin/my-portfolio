@@ -465,7 +465,7 @@ export function DesktopPortfolio({ photoSrc }) {
       {/* Footer */}
       <footer style={{ marginTop: 80, paddingTop: 24, borderTop: '1px solid var(--rule)', display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-4)', letterSpacing: 1 }}>
         <span>© 2026 JOSHUA HYUNBIN LEE</span>
-        <span>SET IN CORMORANT GARAMOND, INTER & JETBRAINS MONO</span>
+        <span>SET IN EB GARAMOND, INTER & JETBRAINS MONO</span>
         <span>LAST UPDATED · APR 2026</span>
       </footer>
     </div>
