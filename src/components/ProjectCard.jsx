@@ -15,7 +15,8 @@ export default function ProjectCard({ project, mobile }) {
         transition: 'all .3s cubic-bezier(.2,.7,.3,1)',
         transform: hovered && hasUrl ? 'translateY(-3px)' : 'translateY(0)',
         cursor: hasUrl ? 'pointer' : 'default', position: 'relative',
-        textDecoration: 'none', color: 'inherit', display: 'block',
+        textDecoration: 'none', color: 'inherit',
+        display: 'flex', flexDirection: 'column', height: '100%', boxSizing: 'border-box',
       }}
     >
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10, marginBottom: 4 }}>
@@ -31,7 +32,7 @@ export default function ProjectCard({ project, mobile }) {
       <div style={{ fontSize: mobile ? 12.5 : 13, color: 'var(--ink-2)', lineHeight: 1.6 }}>
         {project.desc}
       </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 14, alignItems: 'center' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 'auto', paddingTop: 14, alignItems: 'center' }}>
         {project.stack.map((s, i) => (
           <span key={s} style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
             {i > 0 && <span aria-hidden style={{ color: 'var(--ink-4)', fontFamily: 'var(--mono)', fontSize: 10 }}>·</span>}
@@ -43,6 +44,6 @@ export default function ProjectCard({ project, mobile }) {
   )
 
   return hasUrl
-    ? <a href={project.url} target="_blank" rel="noreferrer" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>{card}</a>
+    ? <a href={project.url} target="_blank" rel="noreferrer" style={{ display: 'block', textDecoration: 'none', color: 'inherit', height: '100%' }}>{card}</a>
     : card
 }
