@@ -11,8 +11,8 @@ export default function ArticlePage({ mobile }) {
   if (!a) {
     return (
       <div style={{ background: 'var(--paper)', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--mono)', color: 'var(--ink-3)', gap: 16 }}>
-        <div style={{ fontSize: 11, letterSpacing: 2 }}>404 · NOT FOUND</div>
-        <button onClick={() => navigate('/blog')} style={{ all: 'unset', cursor: 'pointer', color: 'var(--accent)', fontSize: 11, letterSpacing: 1.5 }}>← BACK TO WRITING</button>
+        <div style={{ fontSize: 8, letterSpacing: 2 }}>404 · NOT FOUND</div>
+        <button onClick={() => navigate('/blog')} style={{ all: 'unset', cursor: 'pointer', color: 'var(--accent)', fontSize: 8, letterSpacing: 1.5 }}>← BACK TO WRITING</button>
       </div>
     )
   }
@@ -58,7 +58,7 @@ export default function ArticlePage({ mobile }) {
           </div>
           <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
             {a.tags.map((t) => (
-              <span key={t} style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-3)', padding: '3px 8px', borderRadius: 999, border: '1px solid var(--rule)' }}>{t}</span>
+              <span key={t} style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-3)', padding: '3px 8px', borderRadius: 999, border: '1px solid var(--rule)' }}>{t}</span>
             ))}
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function ArticlePage({ mobile }) {
           style={{ width: mobile ? 48 : 64, height: mobile ? 48 : 64, borderRadius: '50%', objectFit: 'cover', border: '1px solid var(--rule)', flexShrink: 0 }}
         />
         <div style={{ flex: 1 }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-3)', letterSpacing: 1.5, marginBottom: 4 }}>WRITTEN BY</div>
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-3)', letterSpacing: 1.5, marginBottom: 4 }}>WRITTEN BY</div>
           <div style={{ fontFamily: 'var(--serif)', fontSize: mobile ? 22 : 26, fontWeight: 500, color: 'var(--ink)', letterSpacing: -0.3 }}>Joshua Hyunbin Lee</div>
           <div style={{ fontSize: mobile ? 12.5 : 13.5, color: 'var(--ink-2)', marginTop: 6, lineHeight: 1.55 }}>
             {PORTFOLIO_DATA.tagline}. 
@@ -101,7 +101,7 @@ export default function ArticlePage({ mobile }) {
       {/* Related */}
       {related.length > 0 && (
         <section style={{ maxWidth: 1080, margin: mobile ? '48px 0 0' : '80px auto 0', paddingTop: 24, borderTop: '1px solid var(--rule)' }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, color: 'var(--accent)', letterSpacing: 2.5, marginBottom: 18 }}>KEEP READING</div>
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--accent)', letterSpacing: 2.5, marginBottom: 18 }}>KEEP READING</div>
           <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1fr', gap: mobile ? 0 : 32 }}>
             {related.map((r) => (
               <div
@@ -109,9 +109,9 @@ export default function ArticlePage({ mobile }) {
                 onClick={() => navigate(`/article/${r.slug}`)}
                 style={{ padding: '18px 0', borderTop: '1px solid var(--rule)', cursor: 'pointer' }}
               >
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--accent)', letterSpacing: 1.6, fontWeight: 600, marginBottom: 4 }}>{r.kicker.toUpperCase()}</div>
+                <div style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--accent)', letterSpacing: 1.6, fontWeight: 600, marginBottom: 4 }}>{r.kicker.toUpperCase()}</div>
                 <div style={{ fontFamily: 'var(--serif)', fontSize: mobile ? 22 : 26, fontWeight: 500, letterSpacing: -0.4, color: 'var(--ink)', lineHeight: 1.1 }}>{r.title}</div>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-3)', letterSpacing: 0.4, marginTop: 6 }}>
+                <div style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-3)', letterSpacing: 0.4, marginTop: 6 }}>
                   {new Date(r.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
                 </div>
               </div>

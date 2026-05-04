@@ -13,7 +13,7 @@ export default function MobilePortfolio({ photoSrc }) {
   const navigate = useNavigate()
   return (
     <div style={{ background: 'var(--paper)', color: 'var(--ink)', padding: '32px 22px 40px', fontFamily: 'var(--sans)' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--mono)', fontSize: 9.5, color: 'var(--ink-4)', letterSpacing: 1.2, marginBottom: 28 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--mono)', fontSize: 7, color: 'var(--ink-4)', letterSpacing: 1.2, marginBottom: 28 }}>
         <span>JHL · 2026</span>
         <span>v1.0</span>
       </div>
@@ -24,7 +24,7 @@ export default function MobilePortfolio({ photoSrc }) {
           ? <img src={photoSrc} alt={PORTFOLIO_DATA.name} style={{ width: 110, height: 110, borderRadius: '50%', objectFit: 'cover', border: '1px solid var(--rule)', marginBottom: 22 }} />
           : <PortraitPlaceholder size={110} />
         }
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 9.5, color: 'var(--accent)', letterSpacing: 2, marginTop: 22, marginBottom: 10 }}>HELLO — I'M</div>
+        <div style={{ fontFamily: 'var(--mono)', fontSize: 7, color: 'var(--accent)', letterSpacing: 2, marginTop: 22, marginBottom: 10 }}>HELLO — I'M</div>
         <h1 style={{ fontFamily: 'var(--serif)', fontSize: 54, fontWeight: 500, lineHeight: 0.92, letterSpacing: -1.4, margin: 0, color: 'var(--ink)' }}>
           Joshua <span style={{ fontStyle: 'italic', color: 'var(--accent)' }}>Hyunbin</span> Lee
         </h1>
@@ -33,7 +33,7 @@ export default function MobilePortfolio({ photoSrc }) {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 22, paddingTop: 18, borderTop: '1px solid var(--rule)' }}>
           {PORTFOLIO_DATA.contacts.map((c) => (
-            <a key={c.label} href={c.href || undefined} style={{ display: 'flex', alignItems: 'center', gap: 10, fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--ink-2)', textDecoration: 'none', letterSpacing: 0.3 }}>
+            <a key={c.label} href={c.href || undefined} style={{ display: 'flex', alignItems: 'center', gap: 10, fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-2)', textDecoration: 'none', letterSpacing: 0.3 }}>
               <span style={{ width: 14, display: 'inline-flex', color: 'var(--accent)' }}><ContactIcon kind={c.kind} /></span>
               {c.value}
             </a>
@@ -42,7 +42,7 @@ export default function MobilePortfolio({ photoSrc }) {
         {/* Visit Writing CTA */}
         <button
           onClick={() => navigate('/blog')}
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, marginTop: 22, padding: '12px 16px', border: '1px solid var(--ink)', background: 'var(--ink)', color: 'var(--paper)', fontFamily: 'var(--mono)', fontSize: 10.5, letterSpacing: 1.4, textTransform: 'uppercase', fontWeight: 500, cursor: 'pointer', width: '100%' }}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, marginTop: 22, padding: '12px 16px', border: '1px solid var(--ink)', background: 'var(--ink)', color: 'var(--paper)', fontFamily: 'var(--mono)', fontSize: 8, letterSpacing: 1.4, textTransform: 'uppercase', fontWeight: 500, cursor: 'pointer', width: '100%' }}
         >
           <span>Visit Writing</span>
           <span aria-hidden>→</span>

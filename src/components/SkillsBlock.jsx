@@ -5,7 +5,7 @@ export default function SkillsBlock({ mobile }) {
     <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : 'repeat(3, 1fr)', gap: mobile ? 18 : 28 }}>
       {PORTFOLIO_DATA.skills.map((g) => (
         <div key={g.group}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-3)', letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: 10 }}>
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-3)', letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: 10 }}>
             {g.group}
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
