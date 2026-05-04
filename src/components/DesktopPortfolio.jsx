@@ -24,7 +24,7 @@ function KirbyScene() {
   const [runKey, setRunKey] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setRunKey((k) => k + 1), 30000);
+    const id = setInterval(() => setRunKey((k) => k + 1), 20000);
     return () => clearInterval(id);
   }, []);
 
@@ -54,7 +54,7 @@ function KirbyScene() {
           frameWidth={36}
           frameHeight={36}
           scale={3}
-          fps={12}
+          fps={14}
           frames={[0, 1, 2, 3, 4, 5, 6, 7]}
         />
       </div>
@@ -378,7 +378,7 @@ export default function DesktopPortfolio({ photoSrc }) {
           }}
         >
           <span>© 2026 JOSHUA HYUNBIN LEE</span>
-          <span>LAST UPDATED · APR 2026</span>
+          <span>LAST UPDATED · MAY 2026</span>
         </footer>
       </div>
 
