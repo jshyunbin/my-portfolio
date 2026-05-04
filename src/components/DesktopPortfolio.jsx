@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PORTFOLIO_DATA } from "../data";
 import PortraitPlaceholder from "./PortraitPlaceholder";
@@ -8,14 +9,64 @@ import SkillsBlock from "./SkillsBlock";
 import LanguagesBlock from "./LanguagesBlock";
 import ProjectCard from "./ProjectCard";
 import HobbiesBlock from "./HobbiesBlock";
-import KirbyRunner from "./KirbyRunner";
+import SpriteRunner from "./SpriteRunner";
+import kirbySheet from "../assets/Kirby-run.png";
+import kirbySleepSheet from "../assets/Kirby-sleep.png";
 import StickerGutter from "./StickerGutter";
 import Sticker from "./Sticker";
-import ari0 from "../assets/ari-0.png";
 import ari1 from "../assets/ari-1.png";
 import zorro0 from "../assets/zorro-0.png";
-import zorro1 from "../assets/zorro-1.png";
 import fightclub from "../assets/fight_club.png";
+
+const KIRBY_SIZE = 36 * 3;
+
+function KirbyScene() {
+  const [runKey, setRunKey] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setRunKey((k) => k + 1), 30000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div
+      style={{
+        position: "relative",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "100vw",
+        height: KIRBY_SIZE,
+        overflow: "hidden",
+        marginBottom: 56,
+      }}
+      aria-hidden
+    >
+      <div
+        key={runKey}
+        style={{
+          position: "absolute",
+          top: 0,
+          animation: `kirby-cross 5s linear forwards`,
+        }}
+      >
+        <SpriteRunner
+          src={kirbySheet}
+          frameWidth={36}
+          frameHeight={36}
+          scale={3}
+          fps={12}
+          frames={[0, 1, 2, 3, 4, 5, 6, 7]}
+        />
+      </div>
+      <style>{`
+        @keyframes kirby-cross {
+          from { left: -${KIRBY_SIZE}px; }
+          to   { left: calc(100% + ${KIRBY_SIZE}px); }
+        }
+      `}</style>
+    </div>
+  );
+}
 
 export default function DesktopPortfolio({ photoSrc }) {
   const navigate = useNavigate();
@@ -234,7 +285,7 @@ export default function DesktopPortfolio({ photoSrc }) {
           </div>
         </header>
 
-        <KirbyRunner />
+        <KirbyScene />
 
         {/* 01 Education / 02 Experience */}
         <section
@@ -287,15 +338,35 @@ export default function DesktopPortfolio({ photoSrc }) {
         </section>
 
         {/* 06 Things I Like */}
-        <section style={{ marginBottom: 88 }}>
+        <section style={{ marginBottom: 0 }}>
           <SectionLabel num={6}>Things I Like</SectionLabel>
           <HobbiesBlock />
+          <div
+            style={{
+              marginTop: 32,
+              display: "flex",
+              justifyContent: "flex-start",
+              transform: "scaleX(-1)",
+            }}
+          >
+            <SpriteRunner
+              src={kirbySleepSheet}
+              frameWidth={33}
+              frameHeight={33}
+              scale={4}
+              fps={7}
+              frames={[
+                0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8,
+                9, 10, 11, 12,
+              ]}
+            />
+          </div>
         </section>
 
         {/* Footer */}
         <footer
           style={{
-            marginTop: 80,
+            marginTop: 20,
             paddingTop: 24,
             borderTop: "1px solid var(--rule)",
             display: "flex",
