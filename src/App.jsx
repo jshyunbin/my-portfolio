@@ -4,6 +4,7 @@ import DesktopPortfolio from './components/DesktopPortfolio'
 import MobilePortfolio from './components/MobilePortfolio'
 import ArticlePage from './components/ArticlePage'
 import BlogPage from './components/BlogPage'
+import KirbyTest from './components/KirbyTest'
 import profilePhoto from './assets/profile.jpeg'
 
 function ScrollToTop() {
@@ -48,6 +49,7 @@ export default function App() {
         <Route path="/" element={<Portfolio />} />
         <Route path="/article/:slug" element={<ArticleRoute />} />
         <Route path="/blog" element={<BlogRoute />} />
+        <Route path="/test" element={<KirbyTest />} />
       </Routes>
     </HashRouter>
   )
