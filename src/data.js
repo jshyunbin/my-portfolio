@@ -2,9 +2,24 @@ export const PORTFOLIO_DATA = {
   name: "Joshua Hyunbin Lee",
   tagline: "Undergrad Student @ KAIST",
   contacts: [
-    { kind: "email", label: "Email", value: "jshyunbin@gmail.com", href: "mailto:jshyunbin@gmail.com" },
-    { kind: "github", label: "GitHub", value: "github.com/jshyunbin", href: "https://www.github.com/jshyunbin" },
-    { kind: "linkedin", label: "LinkedIn", value: "linkedin.com/in/jhyunbin", href: "https://www.linkedin.com/in/jhyunbin" },
+    {
+      kind: "email",
+      label: "Email",
+      value: "jshyunbin@gmail.com",
+      href: "mailto:jshyunbin@gmail.com",
+    },
+    {
+      kind: "github",
+      label: "GitHub",
+      value: "github.com/jshyunbin",
+      href: "https://www.github.com/jshyunbin",
+    },
+    {
+      kind: "linkedin",
+      label: "LinkedIn",
+      value: "linkedin.com/in/jhyunbin",
+      href: "https://www.linkedin.com/in/jhyunbin",
+    },
     { kind: "location", label: "Based in", value: "Seoul, KR" },
   ],
   education: [
@@ -84,31 +99,61 @@ export const PORTFOLIO_DATA = {
     },
   ],
   skills: [
-    { group: "Languages", items: ["Python", "C / C++", "JavaScript", "Java", "Rust"] },
+    {
+      group: "Languages",
+      items: ["Python", "C / C++", "JavaScript", "Java", "Rust"],
+    },
     { group: "Frameworks", items: ["PyTorch", "NumPy", "pandas", "React"] },
     { group: "Tools", items: ["Docker", "ROS", "MuJoCo", "robosuite"] },
   ],
   spoken: [
     { lang: "Korean", note: "Native", level: 1.0 },
-    { lang: "English", note: "TOEFL 104", level: 0.90 },
+    { lang: "English", note: "TOEFL 104", level: 0.9 },
     { lang: "Japanese", note: "JLPT N2", level: 0.65 },
   ],
   hobbies: [
-    { title: "Films & Anime", note: "Late-night rewatches.", detail: "Akira, Fight Club, La La Land. Keeping a running list of opening shots that ruined me.", icon: "film" },
-    { title: "Café Hunting", note: "Specialty roasters in Seoul.", detail: "Taking walks with a cup of coffee from your favorite cafe solves everything.", icon: "coffee" },
-    { title: "My Cats", note: "Two of them. Loud, fluffy.", detail: "Ari (Siberian/Norweigian Forest Cat) and Zorro (Ragdoll).", icon: "cat" },
-    { title: "Games", note: "Indies, AAAs, Competitive.", detail: "From Hollow Knight, The Last of Us, Nier: Automata to Tekken.", icon: "controller" },
-    { title: "Architecture", note: "Connecting People, Time and Place", detail: "Love exploring buildings and following the architect's mind.", icon: "landmark" },
+    {
+      title: "Films & Anime",
+      note: "Late-night rewatches.",
+      detail:
+        "Akira, Fight Club, La La Land. Keeping a running list of opening shots that ruined me.",
+      icon: "film",
+    },
+    {
+      title: "Café Hunting",
+      note: "Specialty roasters in Seoul.",
+      detail:
+        "Taking walks with a cup of coffee from your favorite cafe solves everything.",
+      icon: "coffee",
+    },
+    {
+      title: "My Cats",
+      note: "Two of them. Loud, fluffy.",
+      detail: "Ari (Siberian/Norweigian Forest Cat) and Zorro (Ragdoll).",
+      icon: "cat",
+    },
+    {
+      title: "Games",
+      note: "Indies, AAAs, Competitive.",
+      detail: "From Hollow Knight, The Last of Us, Nier: Automata to Tekken.",
+      icon: "controller",
+    },
+    {
+      title: "Architecture",
+      note: "Connecting People, Time and Place",
+      detail: "Love exploring buildings and following the architect's mind.",
+      icon: "landmark",
+    },
   ],
   projects: [
-    // {
-    //   title: "Deep Reasoning Policy",
-    //   sub: "Ongoing Project on Applying Recursive Reasoning to Continuous Visuomotor Policy",
-    //   desc: "Inspired by HRM, TRM and GRAM architecture. ",
-    //   stack: ["PyTorch", "Python", "Robot Manipulation"],
-    //   url: "",
-    //   year: "2026 - Ongoing",
-    // },
+    {
+      title: "Recursive Reasoning Policy",
+      sub: "Personal Project",
+      desc: "Ongoing Project on Applying Recursive Reasoning to Continuous Visuomotor Policy",
+      stack: ["PyTorch", "Python", "Robot Manipulation"],
+      url: "",
+      year: "2026 - Ongoing",
+    },
     {
       title: "Portfolio · Blog Page",
       sub: "A Public Self-Portfolio and Blog Page",
@@ -135,4 +180,3 @@ export const PORTFOLIO_DATA = {
     },
   ],
 };
-
