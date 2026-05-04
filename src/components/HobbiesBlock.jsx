@@ -20,7 +20,7 @@ export default function HobbiesBlock({ mobile }) {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, color: 'var(--accent)' }}>
             <HobbyIcon name={h.icon} />
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: 1.4, textTransform: 'uppercase', fontWeight: 600 }}>{h.note}</span>
+            <span style={{ fontFamily: 'var(--mono)', fontSize: 8, letterSpacing: 1.4, textTransform: 'uppercase', fontWeight: 600 }}>{h.note}</span>
           </div>
           <div style={{ fontFamily: 'var(--serif)', fontSize: mobile ? 22 : 24, color: 'var(--ink)', letterSpacing: -0.3, fontWeight: 500, lineHeight: 1.1 }}>
             {h.title}

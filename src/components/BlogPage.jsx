@@ -46,7 +46,7 @@ export default function BlogPage({ mobile }) {
       {/* Filters */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: mobile ? 28 : 40, flexWrap: 'wrap', gap: 14 }}>
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-4)', letterSpacing: 1.5, marginRight: 6 }}>FILTER ·</span>
+          <span style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-4)', letterSpacing: 1.5, marginRight: 6 }}>FILTER ·</span>
           {tags.map((t) => {
             const active = filter === t
             return (
@@ -54,7 +54,7 @@ export default function BlogPage({ mobile }) {
                 key={t}
                 onClick={() => setFilter(t)}
                 style={{
-                  fontFamily: 'var(--mono)', fontSize: 10.5, letterSpacing: 0.6,
+                  fontFamily: 'var(--mono)', fontSize: 8, letterSpacing: 0.6,
                   padding: '6px 12px', borderRadius: 999,
                   border: `1px solid ${active ? 'var(--accent)' : 'var(--rule)'}`,
                   background: active ? 'var(--accent)' : 'transparent',
@@ -68,7 +68,7 @@ export default function BlogPage({ mobile }) {
             )
           })}
         </div>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-3)', letterSpacing: 1.4 }}>
+        <span style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-3)', letterSpacing: 1.4 }}>
           SORT · NEWEST FIRST ↓
         </span>
       </div>
@@ -92,17 +92,17 @@ export default function BlogPage({ mobile }) {
                 </svg>
               )
             }
-            <div style={{ position: 'absolute', top: 14, left: 14, fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--accent)', letterSpacing: 2, padding: '5px 10px', background: 'var(--paper)', border: '1px solid var(--accent)', fontWeight: 600 }}>
+            <div style={{ position: 'absolute', top: 14, left: 14, fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--accent)', letterSpacing: 2, padding: '5px 10px', background: 'var(--paper)', border: '1px solid var(--accent)', fontWeight: 600 }}>
               ★ FEATURED
             </div>
           </div>
           {/* Text */}
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 14, marginBottom: 14, flexWrap: 'wrap' }}>
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 10.5, color: 'var(--accent)', letterSpacing: 2, fontWeight: 600, textTransform: 'uppercase' }}>
+              <span style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--accent)', letterSpacing: 2, fontWeight: 600, textTransform: 'uppercase' }}>
                 {featured.kicker}
               </span>
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-4)', letterSpacing: 0.4 }}>
+              <span style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-4)', letterSpacing: 0.4 }}>
                 {featured.date} · {featured.readTime}
               </span>
             </div>
@@ -118,14 +118,14 @@ export default function BlogPage({ mobile }) {
             <div style={{ marginTop: 22, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 10 }}>
               <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
                 {featured.tags.map((t) => (
-                  <span key={t} style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-3)', padding: '3px 8px', borderRadius: 999, border: '1px solid var(--rule)' }}>
+                  <span key={t} style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-3)', padding: '3px 8px', borderRadius: 999, border: '1px solid var(--rule)' }}>
                     {t}
                   </span>
                 ))}
               </div>
               <button
                 onClick={() => navigate(`/article/${featured.slug}`)}
-                style={{ fontFamily: 'var(--mono)', fontSize: 10.5, letterSpacing: 1.4, color: 'var(--paper)', background: 'var(--ink)', padding: '9px 14px', border: 'none', cursor: 'pointer', textTransform: 'uppercase' }}
+                style={{ fontFamily: 'var(--mono)', fontSize: 8, letterSpacing: 1.4, color: 'var(--paper)', background: 'var(--ink)', padding: '9px 14px', border: 'none', cursor: 'pointer', textTransform: 'uppercase' }}
               >
                 Read essay →
               </button>
@@ -136,7 +136,7 @@ export default function BlogPage({ mobile }) {
 
       {/* Post list */}
       <section>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-4)', letterSpacing: 2, marginBottom: 18, display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-4)', letterSpacing: 2, marginBottom: 18, display: 'flex', justifyContent: 'space-between' }}>
           <span>ALL ENTRIES</span>
           <span>{visible.length} POST{visible.length === 1 ? '' : 'S'}</span>
         </div>
@@ -155,7 +155,7 @@ export default function BlogPage({ mobile }) {
       {/* Newsletter */}
       {/* <section style={{ marginTop: mobile ? 56 : 88, padding: mobile ? '28px 22px' : '44px 56px', background: 'var(--paper-2)', border: '1px solid var(--rule)', display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1.2fr 1fr', gap: mobile ? 18 : 44, alignItems: 'center' }}>
         <div>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, color: 'var(--accent)', letterSpacing: 2, fontWeight: 600, marginBottom: 8 }}>
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--accent)', letterSpacing: 2, fontWeight: 600, marginBottom: 8 }}>
             ✶ NEW POSTS, SOMETIMES
           </div>
           <div style={{ fontFamily: 'var(--serif)', fontSize: mobile ? 26 : 34, fontWeight: 500, letterSpacing: -0.5, lineHeight: 1.1, color: 'var(--ink)' }}>
@@ -166,16 +166,16 @@ export default function BlogPage({ mobile }) {
           <input
             type="email"
             placeholder="you@somewhere.kr"
-            style={{ flex: 1, padding: '12px 14px', border: '1px solid var(--rule)', background: 'var(--paper)', fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', outline: 'none' }}
+            style={{ flex: 1, padding: '12px 14px', border: '1px solid var(--rule)', background: 'var(--paper)', fontFamily: 'var(--mono)', fontSize: 9, color: 'var(--ink)', outline: 'none' }}
           />
-          <button type="submit" style={{ padding: '12px 18px', border: '1px solid var(--ink)', background: 'var(--ink)', color: 'var(--paper)', fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: 1.4, textTransform: 'uppercase', cursor: 'pointer' }}>
+          <button type="submit" style={{ padding: '12px 18px', border: '1px solid var(--ink)', background: 'var(--ink)', color: 'var(--paper)', fontFamily: 'var(--mono)', fontSize: 8, letterSpacing: 1.4, textTransform: 'uppercase', cursor: 'pointer' }}>
             Subscribe
           </button>
         </form>
       </section> */}
 
       {/* Footer */}
-      <footer style={{ marginTop: mobile ? 40 : 56, paddingTop: 20, borderTop: '1px solid var(--rule)', display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-4)', letterSpacing: 1, flexWrap: 'wrap', gap: 10 }}>
+      <footer style={{ marginTop: mobile ? 40 : 56, paddingTop: 20, borderTop: '1px solid var(--rule)', display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-4)', letterSpacing: 1, flexWrap: 'wrap', gap: 10 }}>
         <span>© 2026 JOSHUA HYUNBIN LEE · WRITING</span>
         <span>PERSONAL BLOG</span>
       </footer>

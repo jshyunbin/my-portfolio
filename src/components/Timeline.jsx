@@ -55,7 +55,7 @@ function TimelineItem({ entry, isOpen, onToggle, mobile }) {
               <div style={{ fontSize: mobile ? 11 : 12, color: 'var(--ink-4)', marginTop: 2 }}>{entry.sub2}</div>
             )}
           </div>
-          <span aria-hidden style={{ flexShrink: 0, fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-3)', transform: `rotate(${isOpen ? 90 : 0}deg)`, transition: 'transform .3s cubic-bezier(.2,.7,.3,1)', display: 'inline-block', width: 12 }}>
+          <span aria-hidden style={{ flexShrink: 0, fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-3)', transform: `rotate(${isOpen ? 90 : 0}deg)`, transition: 'transform .3s cubic-bezier(.2,.7,.3,1)', display: 'inline-block', width: 12 }}>
             ▸
           </span>
         </div>
@@ -67,7 +67,7 @@ function TimelineItem({ entry, isOpen, onToggle, mobile }) {
             {entry.tags && (
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 10 }}>
                 {entry.tags.map((tag) => (
-                  <span key={tag} style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-3)', padding: '3px 7px', borderRadius: 999, border: '1px solid var(--rule)' }}>
+                  <span key={tag} style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-3)', padding: '3px 7px', borderRadius: 999, border: '1px solid var(--rule)' }}>
                     {tag}
                   </span>
                 ))}

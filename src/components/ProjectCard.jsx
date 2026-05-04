@@ -20,8 +20,8 @@ export default function ProjectCard({ project, mobile }) {
       }}
     >
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10, marginBottom: 4 }}>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-4)', letterSpacing: 1 }}>{project.year}</span>
-        {hasUrl && <span aria-hidden style={{ fontFamily: 'var(--mono)', fontSize: 14, color: hovered ? 'var(--accent)' : 'var(--ink-4)', transform: hovered ? 'translateX(3px) translateY(-3px)' : 'translateX(0)', transition: 'all .3s cubic-bezier(.2,.7,.3,1)' }}>↗</span>}
+        <span style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-4)', letterSpacing: 1 }}>{project.year}</span>
+        {hasUrl && <span aria-hidden style={{ fontFamily: 'var(--mono)', fontSize: 10, color: hovered ? 'var(--accent)' : 'var(--ink-4)', transform: hovered ? 'translateX(3px) translateY(-3px)' : 'translateX(0)', transition: 'all .3s cubic-bezier(.2,.7,.3,1)' }}>↗</span>}
       </div>
       <div style={{ fontFamily: 'var(--serif)', fontSize: mobile ? 24 : 28, color: 'var(--ink)', letterSpacing: -0.5, fontWeight: 500, lineHeight: 1.05 }}>
         {project.title}
@@ -35,8 +35,8 @@ export default function ProjectCard({ project, mobile }) {
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 'auto', paddingTop: 14, alignItems: 'center' }}>
         {project.stack.map((s, i) => (
           <span key={s} style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-            {i > 0 && <span aria-hidden style={{ color: 'var(--ink-4)', fontFamily: 'var(--mono)', fontSize: 10 }}>·</span>}
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-3)', letterSpacing: 0.4 }}>{s}</span>
+            {i > 0 && <span aria-hidden style={{ color: 'var(--ink-4)', fontFamily: 'var(--mono)', fontSize: 8 }}>·</span>}
+            <span style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-3)', letterSpacing: 0.4 }}>{s}</span>
           </span>
         ))}
       </div>

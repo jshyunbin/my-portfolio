@@ -9,7 +9,7 @@ export default function LanguagesBlock({ mobile }) {
             <span style={{ fontFamily: 'var(--serif)', fontSize: mobile ? 17 : 19, color: 'var(--ink)', fontWeight: 500, letterSpacing: -0.2 }}>
               {l.lang}
             </span>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 10.5, color: 'var(--ink-3)', letterSpacing: 0.5 }}>
+            <span style={{ fontFamily: 'var(--mono)', fontSize: 8, color: 'var(--ink-3)', letterSpacing: 0.5 }}>
               {l.note}
             </span>
           </div>
