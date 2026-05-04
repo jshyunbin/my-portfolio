@@ -8,6 +8,7 @@ import SkillsBlock from './SkillsBlock'
 import LanguagesBlock from './LanguagesBlock'
 import ProjectCard from './ProjectCard'
 import HobbiesBlock from './HobbiesBlock'
+import KirbyRunner from './KirbyRunner'
 
 export default function DesktopPortfolio({ photoSrc }) {
   const navigate = useNavigate()
@@ -20,7 +21,7 @@ export default function DesktopPortfolio({ photoSrc }) {
       </div>
 
       {/* Hero */}
-      <header style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: 56, alignItems: 'center', marginBottom: 88 }}>
+      <header style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: 56, alignItems: 'center', marginBottom: 32 }}>
         {photoSrc
           ? <img src={photoSrc} alt={PORTFOLIO_DATA.name} style={{ width: 220, height: 220, borderRadius: '50%', objectFit: 'cover', border: '1px solid var(--rule)' }} />
           : <PortraitPlaceholder size={220} />
@@ -62,6 +63,8 @@ export default function DesktopPortfolio({ photoSrc }) {
           </button>
         </div>
       </header>
+
+      <KirbyRunner />
 
       {/* 01 Education / 02 Experience */}
       <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, marginBottom: 88 }}>
