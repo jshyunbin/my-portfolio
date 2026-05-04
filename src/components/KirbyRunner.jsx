@@ -1,32 +1,43 @@
-import { useEffect, useState } from 'react'
-import kirbySheet from '../assets/Kirby-run.png'
+import { useEffect, useState } from "react";
+import kirbySheet from "../assets/Kirby-run.png";
 
-const FRAME_SIZE = 36
-const SCALE = 3
-const FRAMES = 8
-const FPS = 12
+const FRAME_SIZE = 36;
+const SCALE = 3;
+const FRAMES = 8;
+const FPS = 12;
 
 export default function KirbyRunner() {
-  const [runKey, setRunKey] = useState(0)
+  const [runKey, setRunKey] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setRunKey((k) => k + 1), 30000)
-    return () => clearInterval(id)
-  }, [])
+    const id = setInterval(() => setRunKey((k) => k + 1), 30000);
+    return () => clearInterval(id);
+  }, []);
 
-  const size = FRAME_SIZE * SCALE
-  const frameDuration = FRAMES / FPS
+  const size = FRAME_SIZE * SCALE;
+  const frameDuration = FRAMES / FPS;
 
   return (
-    <div style={{ position: 'relative', left: '50%', transform: 'translateX(-50%)', width: '100vw', height: size, overflow: 'hidden', marginBottom: 56 }} aria-hidden>
+    <div
+      style={{
+        position: "relative",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "100vw",
+        height: size,
+        overflow: "hidden",
+        marginBottom: 56,
+      }}
+      aria-hidden
+    >
       <div
         key={runKey}
         style={{
-          position: 'absolute',
+          position: "absolute",
           top: 0,
           width: size,
           height: size,
-          overflow: 'hidden',
+          overflow: "hidden",
           animation: `kirby-cross 5s linear forwards`,
         }}
       >
@@ -35,7 +46,7 @@ export default function KirbyRunner() {
           alt=""
           style={{
             height: size,
-            imageRendering: 'pixelated',
+            imageRendering: "pixelated",
             animation: `kirby-frames ${frameDuration.toFixed(3)}s steps(${FRAMES}) infinite`,
           }}
         />
@@ -51,5 +62,5 @@ export default function KirbyRunner() {
         }
       `}</style>
     </div>
-  )
+  );
 }
