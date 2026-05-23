@@ -47,7 +47,7 @@ export const PORTFOLIO_DATA = {
       org: "Georgia Institute of Technology",
       sub2: "Atlanta, GA",
       role: "Undergraduate Exchange · Computer Science",
-      desc: "Semester exchange focused on systems and theory coursework alongside Georgia Tech's CS undergraduates.",
+      desc: "Semester exchange focused on graphics and robotics/perception coursework alongside Georgia Tech's CS undergraduates.",
       tags: ["Exchange", "CS"],
     },
     {
