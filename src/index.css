@@ -88,8 +88,8 @@ a {
 }
 
 .article-body code {
-  font-family: var(--mono);
-  font-size: 12.5px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 14px;
   line-height: 1.6;
   color: var(--ink);
 }
