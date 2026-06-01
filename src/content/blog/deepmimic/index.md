@@ -16,7 +16,7 @@ Manipulation 쪽 논문을 읽다 이 논문을 읽으니 신선하기도 하고
 
 DeepMimic은 MoCap 데이터를 사용해 Deep RL을 활용하여 imitation과 goal을 동시에 달성할 수 있는 프레임워크를 제안합니다. 기존에도 Deep RL을 활용한 애니메이션 생성 기술들이 존재하였지만, 실제 움직임과 동떨어진 모습을 보이는 한계점을 보였고, kinematics 기반의 imitation 기술들은 reference clip이 섬세하게 설계되야된다는 한계점을 갖고 있었습니다. 이 논문의 contribution은 바로 개별적으로 존재하던 data-driven method와 goal based deep RL 기법들을 융합해 실제 움직임과 동떨어지지 않는 모션을 생성할 수 있는 프레임워크를 생성했다는 것입니다. 또한 다양한 skill들을 융합하는 방법으로 총 세가지의 방법을 제안합니다. 
 
-![DeepMimic Animation](deep-mimic-animation.jpeg)
+![DeepMimic Animation](./images/deep-mimic-animation.jpeg)
 
 # DeepMimic
 
@@ -37,7 +37,7 @@ Imitation reward($r_t^I$)는 reference clip의 동작을 따라하는 것을 목
 
 Goal reward($r_t^G$)는 task를 나타내는 reward입니다. 
 
-![Neural Network](deepmimic.jpeg)
+![Neural Network](./images/deepmimic.jpeg)
 
 위 reward function을 통해 모델은 PPO 알고리즘을 통해 학습이 됩니다. 학습 과정에서 저자들은 두가지 technique를 사용하여 학습을 robust하게 만들었습니다. 
 
@@ -73,7 +73,7 @@ Multi-clip reward는 하나의 목표를 달성하기 위해 다양한 클립을
 앞의 두 방법들은 하나의 policy를 학습하는 방법이었던 반면, composite policy는 divide-and-conquer 전략을 취해 각 skill을 학습한 여러개의 policy들을 병합합니다. 각 skill의 value function이 현재 state에 대해 각 skill에 대한 expected return이라는 점을 활용하여 볼츠만 분포를 통해서 policy를 표현합니다. 
 
 $$
-\Pi(a|s) = \Sum_{i=1}^k p^i(s) \pi^i(a|s), \; p^i(s) = \frac{e^{V^i(s)/T}}{\Sum_{j=1}^k e^{V^j(s)/T}}
+\Pi(a|s) = \sum_{i=1}^k p^i(s) \pi^i(a|s), \; p^i(s) = \frac{e^{V^i(s)/T}}{\sum_{j=1}^k e^{V^j(s)/T}}
 $$
 
 위 policy를 통해서 추가적인 학습 없이 자연스럽게 연속적으로 다양한 skill들을 수행할 수 있습니다. 
