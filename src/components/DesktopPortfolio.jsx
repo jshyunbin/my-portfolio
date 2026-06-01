@@ -121,7 +121,7 @@ export default function DesktopPortfolio({ photoSrc }) {
           }}
         >
           <span>JHL · PORTFOLIO · 2026</span>
-          <span>v1.1</span>
+          <span>v{__APP_VERSION__}</span>
         </div>
 
         {/* Hero */}

@@ -1,4 +1,7 @@
 import { marked } from 'marked'
+import markedKatex from 'marked-katex-extension'
+
+marked.use(markedKatex({ throwOnError: false }))
 
 // Import all markdown files as raw strings at build time.
 const rawFiles = import.meta.glob('../content/blog/*/index.md', {

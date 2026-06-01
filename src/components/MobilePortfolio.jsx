@@ -86,7 +86,7 @@ export default function MobilePortfolio({ photoSrc }) {
         }}
       >
         <span>JHL · 2026</span>
-        <span>v1.1</span>
+        <span>v{__APP_VERSION__}</span>
       </div>
 
       {/* Hero */}
