@@ -14,7 +14,7 @@ Manipulation 쪽 논문을 읽다 이 논문을 읽으니 신선하기도 하고
 
 # Summary
 
-DeepMimic은 MoCap 데이터를 사용해 Deep RL을 활용하여 imitation과 goal을 동시에 달성할 수 있는 프레임워크를 제안합니다. 기존에도 Deep RL을 활용한 애니메이션 생성 기술들이 존재하였지만, 실제 움직임과 동떨어진 모습을 보이는 한계점을 보였고, kinematics 기반의 imitation 기술들은 reference clip이 섬세하게 설계되야된다는 한계점을 갖고 있었습니다. 이 논문의 contribution은 바로 개별적으로 존재하던 data-driven method와 goal based deep RL 기법들을 융합해 실제 움직임과 동떨어지지 않는 모션을 생성할 수 있는 프레임워크를 생성했다는 것입니다. 또한 다양한 skill들을 융합하는 방법으로 총 세가지의 방법을 제안합니다. 
+DeepMimic은 MoCap 데이터를 사용해 Deep RL을 활용하여 imitation과 goal을 동시에 달성할 수 있는 프레임워크를 제안합니다. 기존에도 Deep RL을 활용한 애니메이션 생성 기술들이 존재하였지만, 실제 움직임과 동떨어진 모습을 보이는 한계점을 보였고, kinematics 기반의 imitation 기술들은 reference clip이 섬세하게 설계되야된다는 한계점을 갖고 있었습니다. 이 논문의 contribution은 바로 개별적으로 존재하던 data-driven method와 goal based deep RL 기법들을 융합해 실제 움직임과 동떨어지지 않는 모션을 생성할 수 있는 프레임워크를 제시했다는 것입니다. 또한 다양한 skill들을 융합하는 방법들을 제안합니다. 
 
 ![DeepMimic Animation](./images/deep-mimic-animation.jpeg)
 
@@ -81,3 +81,5 @@ $$
 ---
 
 이렇게 DeepMimic에 대해 알아보았습니다. 
+
+Behavior cloning에 익숙한 저로서는 흥미로운 paper였습니다. 물론 지금 시점으로는 꽤 옛날 논문이기도 하고 공동저자로 있는 저자들이 현재 로보틱스 분야에서 유명한 교수님들인것 만큼 로보틱스에서는 이미 흔한 기법인 것 같습니다. 이런 시뮬레이션 상에서 Deep RL을 하면서 얻을 수 있는 가장 큰 이점은 바로 대량의 데이터셋이 필요하지 않다는 것인 것 같습니다. 아무리 ACT나 DP와 같이 SOTA 모델들의 성능이 좋아지긴 해도, 결국 분포 이동의 문제를 완벽하게 해결하지는 못합니다. Deep RL은 이러한 문제를 직접 exploration을 하면서 해결하며, 학습을 거듭하며 physic simulation에 대한 이해를 강화할 수 있습니다. 
