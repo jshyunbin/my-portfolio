@@ -59,7 +59,7 @@ ET는 특정 link가 땅에 닿는 것과 같이, recovery가 어려운 상황�
 가장 단순하게 imitation reward를 여러 clip의 imitation reward들의 max로 취하는 방법입니다. 
 
 $$
-r_t^I = \max_{j=1}^{N} r_t^j
+r_t^I = \max_{j=1,...,k} r_t^j
 $$
 
 이 방법을 통해 모델은 현재 state와 가장 비슷한 clip을 흉내내도록 학습되게 됩니다. 
