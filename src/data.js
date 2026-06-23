@@ -62,12 +62,21 @@ export const PORTFOLIO_DATA = {
   ],
   experience: [
     {
-      year: "Dec 2025 — Now",
+      year: "Jun 2026 — Now",
       sub: "Ongoing",
+      org: "Daangn Market (당근마켓)",
+      sub2: "Feed Quality Team",
+      role: "ML Engineer Intern",
+      desc: "Enhancing the feed recommendation system on the Feed Quality team — improving ranking and recommendation quality for the hyperlocal marketplace feed.",
+      tags: ["ML", "RecSys", "Feed"],
+    },
+    {
+      year: "Dec 2025 — Jun 2026",
+      sub: "Internship",
       org: "IRSL @ KAIST",
       sub2: "Interactive Robotics & Systems Lab",
       role: "Undergraduate Research Intern",
-      desc: "Designing and implementing a Universal Manipulation Interface (UMI) tailored to the lab's robotic manipulation setup — bridging teleoperated demonstrations and policy learning.",
+      desc: "Designed and implemented a Universal Manipulation Interface (UMI) tailored to the lab's robotic manipulation setup — bridging teleoperated demonstrations and policy learning.",
       tags: ["Robotics", "UMI", "ROS"],
     },
     {
