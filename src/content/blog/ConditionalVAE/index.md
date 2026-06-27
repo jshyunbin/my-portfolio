@@ -1,6 +1,6 @@
 ---
 title: "Physics-based Conditional VAE 논문 리뷰"
-sub: "Physics-based Character Controllers Using Conditinal VAEs"
+sub: "Physics-based Character Controllers Using Conditional VAEs"
 kicker: "Paper Review"
 date: "2026-06-28"
 readTime: "7 min"
@@ -12,7 +12,7 @@ excerpt: "latent space 기반 motion control"
 
 ![ConditionalVAE](./images/ConditionalVAE.jpeg)
 
-# Physics-based Character Controllers Using Conditinal VAEs
+# Physics-based Character Controllers Using Conditional VAEs
 
 이 논문이 제안하는 기법은 다른 conditional VAE 기반의 생성형 모델과 크게 다르지 않습니다. Expert Trajectory를 supervised learning을 사용하여 현재 state에 condition된 VAE를 학습합니다. 이 큰 축은 유지가 되지만, physics-based, 그리고 motion generation인 만큼 디테일 적인 측면에서 다른 부분이 몇 가지가 있는데요, 제가 정리해본 결과 아래와 같이 있는 것 같습니다. 
 
@@ -30,7 +30,7 @@ excerpt: "latent space 기반 motion control"
 
 ![Architecture](./images/model.jpeg)
 
-물리 시뮬레이션 레이어는 CVAE 디코더의 한 부분으로, 앞의 motor decoder과 합쳐져 비로서 다음 state를 예측하는 디코더로서의 역할을 하게 됩니다. 이렇게 motor decoder과 physics simulation layer로 나누어져 있는 이유는 실제로 character를 control할때는 joint의 action으로 명령을 내리게 되고, 이에 따른 물리 시뮬레이션 결과로 state가 결정되기 때문입니다. 
+물리 시뮬레이션 레이어는 CVAE 디코더의 한 부분으로, 앞의 motor decoder와 합쳐져 비로소 다음 state를 예측하는 디코더로서의 역할을 하게 됩니다. 이렇게 motor decoder와 physics simulation layer로 나누어져 있는 이유는 실제로 character를 control할때는 joint의 action으로 명령을 내리게 되고, 이에 따른 물리 시뮬레이션 결과로 state가 결정되기 때문입니다. 
 
 본 논문에서 사용한 simulator는 PyBullet이기 때문에 action -> state에 대한 gradient를 계산할 수 없게 됩니다. 따라서 gradient를 계산할 수 있도록 물리 시뮬레이션 레이어를 먼저 학습시킨 후 CVAE 학습 단계에서는 freeze시켜 motor decoder만을 학습하도록 합니다. 
 
@@ -50,7 +50,7 @@ $$
 
 ![Task Architecture](./images/task.jpeg)
 
-위 그림과 같이 motor decoder를 freeze 시키고, task encoder는 현재 state와 downstream task를 describe하는 goal state를 받아 motor decoder이 어떤 action을 내놓게 할지 latent space 안에서 exploration을 하게 됩니다. 이 task encoder는 RL (DD-PPO) 기반으로 학습됩니다. 
+위 그림과 같이 motor decoder를 freeze 시키고, task encoder는 현재 state와 downstream task를 describe하는 goal state를 받아 motor decoder가 어떤 action을 내놓게 할지 latent space 안에서 exploration을 하게 됩니다. 이 task encoder는 RL (DD-PPO) 기반으로 학습됩니다. 
 
 위와 같이 학습을 시키면 결국 출력되는 action 자체는 이미 학습된 motor decoder의 output space에서 결정이 되는 것이기 때문에 expert trajectory가 접하지 못한 환경에서는 성능이 급격히 하락할 가능성이 있습니다. 저자는 이 문제를 해결하기 위해 helper branch를 제안합니다. 
 
