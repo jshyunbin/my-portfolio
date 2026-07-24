@@ -156,12 +156,20 @@ export const PORTFOLIO_DATA = {
   ],
   projects: [
     {
-      title: "Recursive Reasoning Policy",
+      title: "NinAlertBot",
       sub: "Personal Project",
-      desc: "Ongoing Project on Applying Recursive Reasoning to Continuous Visuomotor Policy",
+      desc: "A lightweight background service that scans for Nintendo Switch 2 inventory and sends a discord",
+      stack: ["Go"],
+      url: "https://github.com/jshyunbin/ninAlertBot",
+      year: "2026 Summer",
+    },
+    {
+      title: "ROS2 AI Planner",
+      sub: "Group Project",
+      desc: "A dockerized manipulation robot planner that converts language inputs to actions",
       stack: ["PyTorch", "Python", "Robot Manipulation"],
-      url: "",
-      year: "2026 - Ongoing",
+      url: "https://github.com/jshyunbin/ros2-ai-planner",
+      year: "2026 Spring",
     },
     {
       title: "Portfolio · Blog Page",
