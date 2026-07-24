@@ -16,7 +16,6 @@ import StickerGutter from "./StickerGutter";
 import Sticker from "./Sticker";
 import ari1 from "../assets/ari-1.png";
 import zorro0 from "../assets/zorro-0.png";
-import fightclub from "../assets/fight_club.png";
 
 const KIRBY_SIZE = 36 * 3;
 
@@ -95,13 +94,6 @@ export default function DesktopPortfolio({ photoSrc }) {
           width={120}
           rotate={4}
           style={{ marginTop: 440 }}
-        />
-        <Sticker
-          src={fightclub}
-          alt="Fight Club"
-          width={110}
-          rotate={0}
-          style={{ marginTop: 700 }}
         />
       </StickerGutter>
 

@@ -110,7 +110,7 @@ export const PORTFOLIO_DATA = {
   skills: [
     {
       group: "Languages",
-      items: ["Python", "C / C++", "JavaScript", "Java", "Rust"],
+      items: ["Python", "C / C++", "JavaScript", "Java"],
     },
     { group: "Frameworks", items: ["PyTorch", "NumPy", "pandas", "React"] },
     { group: "Tools", items: ["Docker", "ROS", "MuJoCo", "robosuite"] },
@@ -166,7 +166,7 @@ export const PORTFOLIO_DATA = {
     {
       title: "ROS2 AI Planner",
       sub: "Group Project",
-      desc: "A dockerized manipulation robot planner that converts language inputs to actions",
+      desc: "A dockerized robot manipulation planner that converts language prompts to actions. Utilizes Gemini API, GraspGen and cuRobo stack to create a system that is capable of moving an item to a desired location avoiding collisions. ",
       stack: ["PyTorch", "Python", "Robot Manipulation"],
       url: "https://github.com/jshyunbin/ros2-ai-planner",
       year: "2026 Spring",
