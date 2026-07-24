@@ -29,7 +29,7 @@ export const PORTFOLIO_DATA = {
       org: "KAIST",
       sub2: "Korea Advanced Institute of Science and Technology",
       role: "B.S. Computer Science · Minor, Mathematical Sciences",
-      desc: "Coursework in AI/ML, Reinforcement Learning, Algorithms & Data Structures, Probability & Statistics, Computer Architecture, Operating Systems, Linear Algebra, Differential Equations, Programming Languages.",
+      desc: "Coursework in AI/ML, Reinforcement Learning, Algorithms & Data Structures, Probability & Statistics, Computer Architecture, Operating Systems, Linear Algebra, Differential Equations, Programming Languages. Magna cum laude (expected).",
       tags: ["CS", "Math", "AI/ML"],
     },
     {
@@ -47,7 +47,7 @@ export const PORTFOLIO_DATA = {
       org: "Georgia Institute of Technology",
       sub2: "Atlanta, GA",
       role: "Undergraduate Exchange · Computer Science",
-      desc: "Semester exchange focused on graphics and robotics/perception coursework alongside Georgia Tech's CS undergraduates.",
+      desc: "Semester exchange focused on graphics and robotics/perception coursework alongside Georgia Tech's CS undergraduates. GPA 4.0/4.0",
       tags: ["Exchange", "CS"],
     },
     {
