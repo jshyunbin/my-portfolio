@@ -67,7 +67,7 @@ export const PORTFOLIO_DATA = {
       org: "Daangn Market (당근마켓)",
       sub2: "Feed Quality Team",
       role: "ML Engineer Intern",
-      desc: "Enhancing the feed recommendation system on the Feed Quality team — improving ranking and recommendation quality for the hyperlocal marketplace feed.",
+      desc: "Working on improving the ranking model and balancing the ",
       tags: ["ML", "RecSys", "Feed"],
     },
     {
@@ -170,14 +170,6 @@ export const PORTFOLIO_DATA = {
       stack: ["PyTorch", "Python", "Robot Manipulation"],
       url: "https://github.com/jshyunbin/ros2-ai-planner",
       year: "2026 Spring",
-    },
-    {
-      title: "Portfolio · Blog Page",
-      sub: "A Public Self-Portfolio and Blog Page",
-      desc: "A React based web page showcasing my personal profiles and projects with a dedicated blog page for posting articles with ease.",
-      stack: ["React", "Vite", "Software Engineering", "HTML · CSS"],
-      url: "https://jshyunbin.github.io/my-portfolio/",
-      year: "2026",
     },
     {
       title: "ShapeBind",
