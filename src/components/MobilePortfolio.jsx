@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { PORTFOLIO_DATA } from "../data";
 import PortraitPlaceholder from "./PortraitPlaceholder";
 import ContactIcon from "./ContactIcon";
@@ -64,7 +63,6 @@ function KirbyScene() {
 }
 
 export default function MobilePortfolio({ photoSrc }) {
-  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -187,7 +185,7 @@ export default function MobilePortfolio({ photoSrc }) {
         </div>
         {/* Visit Writing CTA */}
         <button
-          onClick={() => navigate("/blog")}
+          onClick={() => window.open("https://velog.io/@jshyunbin/posts", "_blank", "noopener,noreferrer")}
           style={{
             display: "flex",
             alignItems: "center",
